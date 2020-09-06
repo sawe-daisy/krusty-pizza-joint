@@ -132,73 +132,92 @@ $("document").ready(function () {
     totalCost = 0;
 
     for (let i = 0; i < pizzasOrdered.length; i++) {
-        totalCost += pizzasOrdered[i].getPizzaPrice();
-      }
-  
-      $("#summary").append(
-        "<tr>" +
-          '<th scope="row">' +
-          newPizza.type +
-          " (" +
-          newPizza.size +
-          ") - " +
-          newPizza.getTypePrice() +
-          "</th>" +
-          "<td>" +
-          newPizza.crust +
-          " - " +
-          newPizza.getCrustPrice() +
-          "</td>" +
-          "<td>" +
-          newPizza.topping +
-          " - " +
-          newPizza.getToppingPrice() +
-          "</td>" +
-          "<td>" +
-          newPizza.getPizzaPrice() +
-          "</td>" +
-          "</tr>"
-      );
+      totalCost += pizzasOrdered[i].getPizzaPrice();
+    }
 
-      if (pizzasOrdered.length > 0) {
-        $("#krusty-title").empty();
-        $("#krusty-title").append("Add Another Order");
-      }
-  
-      $("#total-amount").fadeIn();
-      $("#checkout").fadeIn();
-      $("#orders-info").fadeIn();
-  
+    $("#summary").append(
+      "<tr>" +
+        '<th scope="row">' +
+        newPizza.type +
+        " (" +
+        newPizza.size +
+        ") - " +
+        newPizza.getTypePrice() +
+        "</th>" +
+        "<td>" +
+        newPizza.crust +
+        " - " +
+        newPizza.getCrustPrice() +
+        "</td>" +
+        "<td>" +
+        newPizza.topping +
+        " - " +
+        newPizza.getToppingPrice() +
+        "</td>" +
+        "<td>" +
+        newPizza.getPizzaPrice() +
+        "</td>" +
+        "</tr>"
+    );
+
+    if (pizzasOrdered.length > 0) {
+      $("#krusty-title").empty();
+      $("#krusty-title").append("Add Another Order");
+    }
+
+    $("#total-amount").fadeIn();
+    $("#checkout").fadeIn();
+    $("#orders-info").fadeIn();
+
+    $("#total-amount").empty();
+    $("#total-amount").append(totalCost);
+    $(".total-amount").show();
+  });
+
+  $("#checkout").click(function () {
+    $(".checkout").show();
+  });
+
+  $("#checkout-form").submit(function (event) {
+    event.preventDefault();
+    var name = $("#name").val("");
+    var devOption = $("#delivery-option").val("");
+    var clientName = name;
+    $("#name").val("");
+    $("#delivery-option").val("");
+    $(".checkout").hide();
+    if (devOption === "deliver") {
+      $(".location").show();
+      $(".dev-cost").show();
+      $("#dev-amount").append(200);
+      totalCost += 200;
       $("#total-amount").empty();
       $("#total-amount").append(totalCost);
-      $(".total-amount").show();
-    });
-  
-    $("#checkout").click(function () {
-      $(".checkout").show();
-    });
-  
-    $("#checkout-form").submit(function (event) {
-      event.preventDefault();
-      var name = $("#name").val("");
-      var devOption = $("#delivery-option").val("");
-      var clientName = name;
-      $("#name").val("");
-      $("#delivery-option").val("");
-      $(".checkout").hide();
-      if (devOption === "deliver") {
-        $(".location").show();
-        $(".dev-cost").show();
-        $("#dev-amount").append(200);
-        totalCost += 200;
-        $("#total-amount").empty();
-        $("#total-amount").append(totalCost);
-      } else {
-        alert(
-          clientName +
-            ": Order amount to Ksh. " +
-            totalCost +
-            ". kindly pick your order after 30 minutes. Thank you for choosing Krusty-pizza-joint."
-        );
-      }
-    });
+    } else {
+      alert(
+        clientName +
+          ": Order amount to Ksh. " +
+          totalCost +
+          ". kindly pick your order after 30 minutes. Thank you for choosing Krusty-pizza-joint."
+      );
+    }
+  });
+  $("#location-form").submit(function (event) {
+    event.preventDefault();
+    var estateEntered = $("#street").val();
+    var houseNumberEntered = $("#house-number").val();
+    street = estateEntered;
+    houseNumber = houseNumberEntered;
+    $(".location").hide();
+    alert(
+      customerName +
+        ": Order amount to Ksh. " +
+        totalCost +
+        ". Your order will be delivered to " +
+        street +
+        ", " +
+        houseNumber +
+        " after 90 minutes.Kindly wait as your meal is being prepared.Thank you for choosing Krusty-pizza-joint."
+    );
+  });
+});
