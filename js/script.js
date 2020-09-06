@@ -159,3 +159,46 @@ $("document").ready(function () {
           "</td>" +
           "</tr>"
       );
+
+      if (pizzasOrdered.length > 0) {
+        $("#krusty-title").empty();
+        $("#krusty-title").append("Add Another Order");
+      }
+  
+      $("#total-amount").fadeIn();
+      $("#checkout").fadeIn();
+      $("#orders-info").fadeIn();
+  
+      $("#total-amount").empty();
+      $("#total-amount").append(totalCost);
+      $(".total-amount").show();
+    });
+  
+    $("#checkout").click(function () {
+      $(".checkout").show();
+    });
+  
+    $("#checkout-form").submit(function (event) {
+      event.preventDefault();
+      var name = $("#name").val("");
+      var devOption = $("#delivery-option").val("");
+      var clientName = name;
+      $("#name").val("");
+      $("#delivery-option").val("");
+      $(".checkout").hide();
+      if (devOption === "deliver") {
+        $(".location").show();
+        $(".dev-cost").show();
+        $("#dev-amount").append(200);
+        totalCost += 200;
+        $("#total-amount").empty();
+        $("#total-amount").append(totalCost);
+      } else {
+        alert(
+          clientName +
+            ": Order amount to Ksh. " +
+            totalCost +
+            ". kindly pick your order after 30 minutes. Thank you for choosing Krusty-pizza-joint."
+        );
+      }
+    });
