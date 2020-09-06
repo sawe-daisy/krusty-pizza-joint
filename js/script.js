@@ -108,7 +108,7 @@ $("document").ready(function () {
       }
     }
   };
-  var customerName = "";
+  var clientName = "";
   var totalCost = 0;
   var pizzasOrdered = [];
   var street = "";
@@ -210,7 +210,7 @@ $("document").ready(function () {
     houseNumber = houseNumberEntered;
     $(".location").hide();
     alert(
-      customerName +
+      clientName +
         ": Order amount to Ksh. " +
         totalCost +
         ". Your order will be delivered to " +
