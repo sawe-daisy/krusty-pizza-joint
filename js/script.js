@@ -130,4 +130,32 @@ $("document").ready(function () {
     $("#crust").val("");
 
     totalCost = 0;
-});
+
+    for (let i = 0; i < pizzasOrdered.length; i++) {
+        totalCost += pizzasOrdered[i].getPizzaPrice();
+      }
+  
+      $("#summary").append(
+        "<tr>" +
+          '<th scope="row">' +
+          newPizza.type +
+          " (" +
+          newPizza.size +
+          ") - " +
+          newPizza.getTypePrice() +
+          "</th>" +
+          "<td>" +
+          newPizza.crust +
+          " - " +
+          newPizza.getCrustPrice() +
+          "</td>" +
+          "<td>" +
+          newPizza.topping +
+          " - " +
+          newPizza.getToppingPrice() +
+          "</td>" +
+          "<td>" +
+          newPizza.getPizzaPrice() +
+          "</td>" +
+          "</tr>"
+      );
