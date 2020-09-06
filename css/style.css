@@ -3,9 +3,29 @@
 html,
 body {
     font-family: sans-serif;
-    background-color: aqua;
+    background-color: dimgray;
 }
 
 .hidden {
     display: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto
+}
+
+.card img {
+    width: 300px;
+    height: 150px;
+}
+
+.card {
+    width: 250px;
+    height: 200px;
+}
+
+.first {
+    margin-bottom: 10px;
+    height: 200px;
 }
