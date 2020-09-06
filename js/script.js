@@ -81,4 +81,31 @@ $("document").ready(function () {
       }
     }
   };
+  pizza.prototype.getCrustPrice = function () {
+    if (this.crust === "crispy") {
+      if (this.size === "large") {
+        return 300;
+      } else if (this.size === "medium") {
+        return 200;
+      } else {
+        return 100;
+      }
+    } else if (this.crust === "stuffed") {
+      if (this.size === "large") {
+        return 300;
+      } else if (this.size === "medium") {
+        return 250;
+      } else {
+        return 150;
+      }
+    } else {
+      if (this.size === "large") {
+        return 350;
+      } else if (this.size === "medium") {
+        return 250;
+      } else {
+        return 200;
+      }
+    }
+  };
 });
