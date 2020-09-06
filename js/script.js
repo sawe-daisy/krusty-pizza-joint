@@ -108,4 +108,9 @@ $("document").ready(function () {
       }
     }
   };
+  var customerName = "";
+  var totalCost = 0;
+  var pizzasOrdered = [];
+  var street = "";
+  var houseNumber = "";
 });
