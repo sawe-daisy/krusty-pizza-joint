@@ -113,4 +113,21 @@ $("document").ready(function () {
   var pizzasOrdered = [];
   var street = "";
   var houseNumber = "";
+
+  $("#krusty-form").submit(function (event) {
+    event.preventDefault();
+    var typeSel = $("#type").val("");
+    var sizeSel = $("#size").val("");
+    var crustSel = $("#crust").val("");
+    var topSel = $("#topping").val("");
+
+    var newPizza = new pizza(typeSel, sizeSel, topSel, crustSel);
+
+    pizzasOrdered.push(newPizza);
+    $("#type").val("");
+    $("#size").val("");
+    $("#topping").val("");
+    $("#crust").val("");
+
+    totalCost = 0;
 });
