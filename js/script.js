@@ -116,10 +116,10 @@ $("document").ready(function () {
 
   $("#krusty-form").submit(function (event) {
     event.preventDefault();
-    var typeSel = $("#type").val("");
-    var sizeSel = $("#size").val("");
-    var crustSel = $("#crust").val("");
-    var topSel = $("#topping").val("");
+    var typeSel = $("#type").val();
+    var sizeSel = $("#size").val();
+    var crustSel = $("#crust").val();
+    var topSel = $("#topping").val();
 
     var newPizza = new pizza(typeSel, sizeSel, topSel, crustSel);
 
@@ -180,8 +180,8 @@ $("document").ready(function () {
 
   $("#checkout-form").submit(function (event) {
     event.preventDefault();
-    var name = $("#name").val("");
-    var devOption = $("#delivery-option").val("");
+    var name = $("#name").val();
+    var devOption = $("#delivery-option").val();
     var clientName = name;
     $("#name").val("");
     $("#delivery-option").val("");
