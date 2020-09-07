@@ -116,18 +116,18 @@ $("document").ready(function () {
 
   $("#krusty-form").submit(function (event) {
     event.preventDefault();
-    var typeSel = $("#type").val("");
-    var sizeSel = $("#size").val("");
-    var crustSel = $("#crust").val("");
-    var topSel = $("#topping").val("");
+    var typeSel = $("#type").val();
+    var sizeSel = $("#size").val();
+    var crustSel = $("#crust").val();
+    var topSel = $("#topping").val();
 
     var newPizza = new pizza(typeSel, sizeSel, topSel, crustSel);
 
     pizzasOrdered.push(newPizza);
-    $("#type").val("");
-    $("#size").val("");
-    $("#topping").val("");
-    $("#crust").val("");
+    $("#type").val();
+    $("#size").val();
+    $("#topping").val();
+    $("#crust").val();
 
     totalCost = 0;
 
@@ -180,11 +180,11 @@ $("document").ready(function () {
 
   $("#checkout-form").submit(function (event) {
     event.preventDefault();
-    var name = $("#name").val("");
-    var devOption = $("#delivery-option").val("");
+    var name = $("#name").val();
+    var devOption = $("#delivery-option").val();
     var clientName = name;
     $("#name").val("");
-    $("#delivery-option").val("");
+    $("#delivery-option").val();
     $(".checkout").hide();
     if (devOption === "deliver") {
       $(".location").show();
@@ -193,16 +193,7 @@ $("document").ready(function () {
       totalCost += 200;
       $("#total-amount").empty();
       $("#total-amount").append(totalCost);
-    } else {
-      alert(
-        clientName +
-          ": Order amount to Ksh. " +
-          totalCost +
-          ". kindly pick your order after 30 minutes. Thank you for choosing Krusty-pizza-joint."
-      );
-    }
-  });
-  $("#location-form").submit(function (event) {
+      $("#location-form").submit(function (event) {
     event.preventDefault();
     var estateEntered = $("#street").val();
     var houseNumberEntered = $("#house-number").val();
@@ -220,4 +211,14 @@ $("document").ready(function () {
         " after 90 minutes.Kindly wait as your meal is being prepared.Thank you for choosing Krusty-pizza-joint."
     );
   });
+    } else {
+      alert(
+        clientName +
+          ": Order amount to Ksh. " +
+          totalCost +
+          ". kindly pick your order after 30 minutes. Thank you for choosing Krusty-pizza-joint."
+      );
+    }
+  });
+  
 });
