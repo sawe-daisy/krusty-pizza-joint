@@ -193,16 +193,7 @@ $("document").ready(function () {
       totalCost += 200;
       $("#total-amount").empty();
       $("#total-amount").append(totalCost);
-    } else {
-      alert(
-        clientName +
-          ": Order amount to Ksh. " +
-          totalCost +
-          ". kindly pick your order after 30 minutes. Thank you for choosing Krusty-pizza-joint."
-      );
-    }
-  });
-  $("#location-form").submit(function (event) {
+      $("#location-form").submit(function (event) {
     event.preventDefault();
     var estateEntered = $("#street").val();
     var houseNumberEntered = $("#house-number").val();
@@ -219,5 +210,14 @@ $("document").ready(function () {
         houseNumber +
         " after 90 minutes.Kindly wait as your meal is being prepared.Thank you for choosing Krusty-pizza-joint."
     );
+  });
+    } else {
+      alert(
+        clientName +
+          ": Order amount to Ksh. " +
+          totalCost +
+          ". kindly pick your order after 30 minutes. Thank you for choosing Krusty-pizza-joint."
+      );
+    }
   });
 });
