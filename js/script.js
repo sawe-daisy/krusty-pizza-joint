@@ -124,10 +124,10 @@ $("document").ready(function () {
     var newPizza = new pizza(typeSel, sizeSel, topSel, crustSel);
 
     pizzasOrdered.push(newPizza);
-    $("#type").val("");
-    $("#size").val("");
-    $("#topping").val("");
-    $("#crust").val("");
+    $("#type").val();
+    $("#size").val();
+    $("#topping").val();
+    $("#crust").val();
 
     totalCost = 0;
 
@@ -183,8 +183,8 @@ $("document").ready(function () {
     var name = $("#name").val();
     var devOption = $("#delivery-option").val();
     var clientName = name;
-    $("#name").val("");
-    $("#delivery-option").val("");
+    $("#name").val();
+    $("#delivery-option").val();
     $(".checkout").hide();
     if (devOption === "deliver") {
       $(".location").show();
